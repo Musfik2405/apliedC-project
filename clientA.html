@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User A - Secure Chat</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; display: flex; justify-content: center; padding: 20px; }
+        .card { width: 450px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        #chat { height: 300px; border: 1px solid #ddd; overflow-y: auto; margin: 15px 0; padding: 10px; display: flex; flex-direction: column; background: #fff; }
+        .me { align-self: flex-end; background: #0084ff; color: white; padding: 8px; border-radius: 10px; margin: 4px; }
+        .peer { align-self: flex-start; background: #e4e6eb; color: black; padding: 8px; border-radius: 10px; margin: 4px; }
+        .system { font-size: 0.8em; color: gray; text-align: center; }
+        .crypto { font-size: 0.8em; color: #28a745; text-align: center; font-weight: bold; }
+        button { cursor: pointer; padding: 8px; border: none; border-radius: 4px; background: #0084ff; color: white; margin: 2px; }
+        input { padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h3>User A</h3>
+        <p>Status: <span id="connection-status">Offline</span></p>
+        <input type="text" id="ipInput" placeholder="localhost" style="width: 70%;">
+        <button onclick="connect()">Connect</button>
+        <hr>
+        <button onclick="exchangeRSA()">Step IV: Exchange RSA</button>
+        <button onclick="exchangeAES()" style="background: #28a745;">Step V: Exchange AES Key</button>
+        <div id="chat"></div>
+        <input type="text" id="msgInput" placeholder="Type message..." style="width: 70%;">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script src="personA.js"></script>
+</body>
+</html>
